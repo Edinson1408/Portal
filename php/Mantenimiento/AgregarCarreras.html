@@ -1,0 +1,45 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<div class="col-xs-6 col-sm-6">-->
+<div class="row">
+    <div class="col-xs-12 col-sm-12">
+
+            <div class="card">
+                <div class="card-header">
+                    <strong>Agregar Carrera</strong> <small>Formulario de registro ~ @Simón Bolivar</small>
+                </div>
+                <div class="card-body card-block">
+                    <input id="Key" name='Key' style="display: none">
+                    <form id='FormularioEnnviar' name="FormularioEnnviar" action="" method="POST">
+                        <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group">
+                                            <label class=" form-control-label">Codigo de Carrera</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                                <input class="form-control" name='IdCarrera' id='IdCarrera' onchange="Validador('IdCarrera','carreras_tbl','IDCARRERA')" >
+                                            </div>
+                                            <small class="form-text text-muted">ex. 99/99/9999</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="form-group">
+                                            <label class=" form-control-label">Nombre de Carrera</label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                                                <input class="form-control" name="NombreCarrera" id='NombreCarrera'>
+                                            </div>
+                                                <small class="form-text text-muted">ex. (999) 999-9999</small>
+                                    </div>
+                                </div>
+                        </div>
+                        
+
+                    </form>
+                </div>
+            </div>
+
+
+    </div>
+</div>
+

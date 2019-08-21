@@ -1,0 +1,110 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--<div class="col-xs-6 col-sm-6">-->
+<div class="row">
+<div class="col-xs-12 col-sm-12">
+
+<div class="card">
+<div class="card-header">
+<strong>Agregar Cursos</strong> <small> Small Text Mask</small>
+</div>
+<div class="card-body card-block">
+    <form id='FormularioEnnviar' name="FormularioEnnviar" action="" method="POST">
+        <div class="row">
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">Codigo de curso</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <input class="form-control" name='IdCursos' id="IdCursos" onchange="Validador('IdCursos','cursos_tbl','IDCURSOS')">
+        </div>
+        <small class="form-text text-muted">ejm. 001301</small>
+        </div>
+        </div>
+
+
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">Carreras</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <Select class="form-control" name='IdCarrera' id="IdCarrera">
+            <option value="">Contabilidad</option>
+            </Select>
+        </div>
+        <small class="form-text text-muted">Seleccione carrera en la que pertenece.</small>
+        </div>
+        </div>
+        </div>
+
+
+        <div class="row">
+
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">Nombre del curso</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+            <input class="form-control" name="Descr250" id="Descr250">
+        </div>
+        <small class="form-text text-muted">ejm. Programación I</small>
+        </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">N° Creditos</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <input class="form-control" name='NumCreditos' id="NumCreditos">
+        </div>
+        <small class="form-text text-muted">ejm. </small>
+        </div>
+        </div>
+
+        </div>
+
+        <div class="row">
+
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">N° Horas</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+            <input class="form-control" name="NumHoras" id="NumHoras">
+        </div>
+        <small class="form-text text-muted">ejm.</small>
+        </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">Ciclo Relativo</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <input class="form-control" name='CicloRelativo' id="CicloRelativo">
+        </div>
+        <small class="form-text text-muted">ejm. </small>
+        </div>
+        </div>
+
+        </div>
+
+        <div class="row">
+        <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+        <label class=" form-control-label">Tipo De Curso</label>
+        <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+            <input type='date' class="form-control" name="TipoCurso" id="TipoCurso">
+        </div>
+        <small class="form-text text-muted">ejm.</small>
+        </div>
+        </div>
+        </div>
+    </form>
+</div>
+</div>
+
+</div>
+</div>
+

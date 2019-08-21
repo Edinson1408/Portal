@@ -1,0 +1,111 @@
+<script>
+
+    /*conuslta pra traer las mallas 
+    SELECT A.IDMALLA,A.IDCARRERA,A.DESCR250,A.PERIODO,B.IDCURSO,B.DESCURSO,B.CICLO FROM malla_tbl A 
+    LEFT JOIN detalle_malla_tbl B ON A.IDMALLA=B.IDMALLA AND A.IDCARRERA=B.IDCARRERA 
+    WHERE A.IDCARRERA='101' AND A.PERIODO='2020'
+    and b.CICLO='1'
+    */
+
+
+jQuery.ajax({
+            url:`php/Controlador/InfoAlumnoC.php/NotasAlumnos`,
+            method:'POST',
+            data : {'Peticion':'Vista','NombreComponente':'MisNotas'},
+            success:(data)=>{
+                ObjetoCurso=JSON.parse(data);
+                    console.log(ObjetoCurso);
+                    var res='';
+                
+                
+                Object.keys(ObjetoCurso).forEach(
+                    key =>{
+                        console.log(key, ObjetoCurso[key])
+                        if(key==0){ collapsed='';show='show' }else{collapsed='collapsed';show='' }
+                        
+                        $HtmlTablas=`
+                <div class="card">
+                <div class="card-header">
+                <a class="${collapsed} card-link" data-toggle="collapse" href="#collapse${key}">
+                ${ObjetoCurso[key]['DESCURSO']}<span style="float:right;" class="badge badge-primary">10</span>
+        </a>
+      </div>
+      <div id="collapse${key}" class="collapse ${show}" data-parent="#accordion">
+            <div class="list-group">
+                <a href="#" class="list-group-item">OpenLoad <span class="label label-success">Online</span> <span class="badge badgepurple">HD</span></a>
+                    <a href="#" class="list-group-item">Gvideo <span class="label label-success">Online</span> <span class="badge">HD</span></a>
+                    <a href="#" class="list-group-item">Vidzi <span class="label label-success">Online</span> <span class="badge">Medium</span></a>
+              </div>
+      </div>
+    </div>
+
+                              `;
+                         res = res.concat($HtmlTablas)
+                    }
+                    ) 
+                    jQuery('#accordion').html(res)
+            }
+        });
+       /* ObjetoCurso={
+                'cantidad':'5',
+                'Cursos' : [
+                    {'curso':'1234','Promedio':'10','Notas':[{'Nota':'10','Descr':'Practica1'},
+                                                            {'Nota':'10','Descr':'Practica2'},
+                                                            {'Nota':'10','Descr':'Practica3'}]},
+                    {'curso':'1234','Promedio':'15','Notas':[{'Nota':'15','Descr':'Practica1'},
+                                                            {'Nota':'15','Descr':'Practica2'},
+                                                            {'Nota':'15','Descr':'Practica3'}]},
+                    {'curso':'1234','Promedio':'10','Notas':[{'Nota':'12','Descr':'Practica1'},
+                                                            {'Nota':'12','Descr':'Practica2'},
+                                                            {'Nota':'12','Descr':'Practica3'}]}
+                           ]  
+                            
+            }*/
+            //console.log(ObjetoCurso);
+        //Object.keys(obj).forEach(key =>{})
+
+</script>
+
+<div id="accordion">
+   
+</div>
+
+  <script>
+      /*
+      <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+          Cruso #2<span style="float:right;" class="badge badge-primary">15</span>
+        </a>
+      </div>
+      <div id="collapseTwo" class="collapse" data-parent="#accordion">
+            <div class="list-group">
+                    <a href="#" class="list-group-item">OpenLoad <span class="label label-success">Online</span> <span class="badge badgepurple">HD</span></a>
+                    <a href="#" class="list-group-item">Gvideo <span class="label label-success">Online</span> <span class="badge">HD</span></a>
+                    <a href="#" class="list-group-item">Vidzi <span class="label label-success">Online</span> <span class="badge">Medium</span></a>
+            </div>
+        <!--<div class="card-body">
+          Lorem ipsum..
+            </div>-->
+      </div>
+    </div>
+  
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+          Curso #3<span style="float:right;" class="badge badge-primary">10</span>
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-parent="#accordion">
+          <div class="list-group">
+                    <a href="#" class="list-group-item">OpenLoad <span class="label label-success">Online</span> <span class="badge badgepurple">HD</span></a>
+                    <a href="#" class="list-group-item">Gvideo <span class="label label-success">Online</span> <span class="badge">HD</span></a>
+                    <a href="#" class="list-group-item">Vidzi <span class="label label-success">Online</span> <span class="badge">Medium</span></a>
+            </div>
+        <!--<div class="card-body">
+          Lorem ipsum..
+        </div>-->
+      </div>
+    </div>
+    */
+  </script>
