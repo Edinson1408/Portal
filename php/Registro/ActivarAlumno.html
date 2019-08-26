@@ -1,0 +1,72 @@
+    <!-- IDREGISTRO
+    IDALUMNO
+    IDCRRERA
+    PERIODO
+    ESTADO
+    DATE_CREATE
+    USER_CREATE
+    DATE_UPDATE
+    USER_UPDATE -->
+
+
+    <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Basic Form</strong> Elements
+                </div>
+                <div class="card-body card-block">
+                    <form id='FormActivarAlumno' class="form-horizontal">
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Id Alumno :</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="IdAlumno" name="IdAlumno" placeholder="Text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombres</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="text" id="Nombres" name="Nombres" placeholder="Text" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="email-input" class=" form-control-label">Carrera</label></div>
+                            <div class="col-12 col-md-9">
+                                <select class="form-control" id="IdCarrera" name="IdCarrera"></select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="password-input" class=" form-control-label">Perido</label></div>
+                            <div class="col-12 col-md-9">
+                                <input type="password" id="Periodo" name="Periodo"  class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3">
+                                <label for="disabled-input" class=" form-control-label">Estado</label></div>
+                            <div class="col-12 col-md-9">
+                                <select class="form-control" id="Estado" name="Estado">
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm" onclick="GuardarActivarAlumno();">
+                        <i class="fa fa-dot-circle-o"></i> Submit
+                    </button>
+                    <button type="reset" class="btn btn-danger btn-sm">
+                        <i class="fa fa-ban"></i> Reset
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            GuardarActivarAlumno=()=>{
+                let data=jQuery('#FormActivarAlumno').serialize();
+                console.log(data);
+            }
+        </script>
