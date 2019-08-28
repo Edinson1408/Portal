@@ -73,11 +73,10 @@ ModalAgregarDocente=()=>{
 //ActivarAlumno
 </script>
 
-<h2>Activar alumno</h2>
-<hr>
-
+<strong><h2>Modulo de activación</h2></strong><small>Alumnos</small>
 <div class="row">        
     <div class="col-md-12">
+        <div class="card">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Busqueda</a>
@@ -87,56 +86,59 @@ ModalAgregarDocente=()=>{
             </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="BACKGROUND: WHITE;">
-             <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                                    <div class="form-group">
-                                            <label class=" form-control-label">Id Alumno</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon"><i class="fa fa-calendar"></i>
-                                                </div>
-                                                <input class="form-control" name='TipoDocumento'>
-                                            </div>
-                                            <small class="form-text text-muted">ex. 99/99/9999</small>
-                                     </div>
-                        </div>
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="background: white;">
+                <div class="card-body card-block">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label class=" form-control-label">Id de alumno</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </div>
+                                <input class="form-control" name='IdAlumno'>
+                            </div>
+                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="form-group">
-                                    <label class=" form-control-label">Dni</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i>
-                                        </div>
-                                        <input class="form-control" name='TipoDocumento'>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label class=" form-control-label">Documento de identificación</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </div>
+                                <input class="form-control" name='TipoDocumento'>
+                            </div> 
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                                <label class=" form-control-label">Periodo</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i>
                                     </div>
-                                    
-                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                                <div class="form-group">
-                                        <label class=" form-control-label">Periodo</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon"><i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input class="form-control" name='TipoDocumento'>
-                                        </div>
-                                 </div>
-                        </div>
+                                    <input class="form-control" name='Periodo'>
+                                </div>
+                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                                <button onclick="BuscarAlumno();">Buscar</button>
-                        </div>
-                    </div>
-             </div>
+                </div>
             </div>
+                <div class="card-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <button onclick="BuscarAlumno();" class="btn btn-secondary">Buscar</button>
+                    </div>
+                </div>
+                </div>
+             </div>
 
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="background: white" id>
                 
             </div>
           </div>
+      </div>
     </div>
 
 

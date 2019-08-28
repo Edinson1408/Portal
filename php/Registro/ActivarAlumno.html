@@ -10,40 +10,41 @@
 
 
     <div class="col-lg-12">
-            <div class="card">
+            <div class="card" style="width: 100%;">
                 <div class="card-header">
-                    <strong>Basic Form</strong> Elements
+                    <strong>Formulario de activación</strong> ~ Alumnos
                 </div>
                 <div class="card-body card-block">
+                    <div class="col col-md-7">
                     <form id='FormActivarAlumno' class="form-horizontal">
                         <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Id Alumno :</label></div>
-                            <div class="col-12 col-md-9">
-                                <input type="text" id="IdAlumno" name="IdAlumno" placeholder="Text" class="form-control" readonly>
+                            <div class="col col-md-5"><label class=" form-control-label">Id de Alumno</label></div>
+                            <div class="col-12 col-md-7">
+                                <input type="text" id="IdAlumno" name="IdAlumno" class="form-control" readonly>
                             </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nombres</label></div>
-                            <div class="col-12 col-md-9">
-                                <input type="text" id="Nombres" name="Nombres" placeholder="Text" class="form-control" readonly>
+                            <div class="col col-md-5"><label for="text-input" class=" form-control-label">Nombres y apellidos</label></div>
+                            <div class="col-12 col-md-7">
+                                <input type="text" id="Nombres" name="Nombres" class="form-control" readonly>
                             </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="email-input" class=" form-control-label">Carrera</label></div>
-                            <div class="col-12 col-md-9">
+                            <div class="col col-md-5"><label for="email-input" class=" form-control-label">Carrera profesional</label></div>
+                            <div class="col-12 col-md-7">
                                 <select class="form-control" id="IdCarrera" name="IdCarrera"></select>
                             </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="password-input" class=" form-control-label">Perido</label></div>
-                            <div class="col-12 col-md-9">
+                            <div class="col col-md-5"><label for="password-input" class=" form-control-label">Periodo de estudio</label></div>
+                            <div class="col-12 col-md-7">
                                 <input type="password" id="Periodo" name="Periodo"  class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3">
+                            <div class="col col-md-5">
                                 <label for="disabled-input" class=" form-control-label">Estado</label></div>
-                            <div class="col-12 col-md-9">
+                            <div class="col-12 col-md-7">
                                 <select class="form-control" id="Estado" name="Estado">
                                     <option value="1">Activo</option>
                                     <option value="2">Inactivo</option>
@@ -51,13 +52,17 @@
                             </div>
                         </div>
                     </form>
+                    </div>
+                    <div class="col col-md-5">
+                        <center><img src="images/activaralumno.png" height="300"></center>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm" onclick="GuardarActivarAlumno();">
-                        <i class="fa fa-dot-circle-o"></i> Submit
+                        <i class="fa fa-dot-circle-o"></i> Activar
                     </button>
                     <button type="reset" class="btn btn-danger btn-sm">
-                        <i class="fa fa-ban"></i> Reset
+                        <i class="fa fa-ban"></i> Reniciar
                     </button>
                 </div>
             </div>
