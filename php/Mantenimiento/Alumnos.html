@@ -5,7 +5,7 @@
 <script>
 
 jQuery.ajax({
-            url:`php/Controlador/CAlumno.php/Vista`,
+            url:`php/Controlador/AlumnosC.php/Vista`,
             method:'POST',
             data : {'Peticion':'Lista'},
             success:(data)=>{
@@ -40,23 +40,37 @@ jQuery.ajax({
         });
 
 
-ModalAgregarDocente=()=>{
+ModalAgregarAlumno=()=>{
     console.log('Agregar Docente');
         jQuery.ajax({
         url:`php/Mantenimiento/AgregarAlumno.html`,
         success: function name(data) {
             console.log(data);
             var Html=data;
-            console.log(data);
             jQuery("#ContenidoModal").html(`${Html}`);
+            /*Ejecutar la del select */
+            ArmarSelect('IdCarrera','carreras_tbl','IDCARRERA','DESCR250','');
         }
       });
     }
 
 
-      Enviar=()=>{
-             conso=$('#FormularioEnnviar').serialize();
-            console.log(conso);
+    GuardarAlumno=()=>{
+            let Enviar;
+            Enviar=$('#FormularioEnnviar').serialize();
+
+            Enviar=Enviar+`&Peticion=Agregar`
+            console.log(Enviar);
+            jQuery.ajax({
+                    url:`php/Controlador/AlumnoC.php/Agregar`,
+                    method:'POST',
+                    data : Enviar,
+                    success: function name(data) {
+                        console.log(data);
+            
+                        }
+                });
+   
       }
 
 </script>
@@ -64,7 +78,7 @@ ModalAgregarDocente=()=>{
 <h1>Alumnos</h1>
 
 
-<button onclick="ModalAgregarDocente();" type="button" class="btn btn-primary"  data-toggle="modal" data-target="#largeModal"><i class="fa fa-star"></i>&nbsp; Agregar</button>
+<button onclick="ModalAgregarAlumno();" type="button" class="btn btn-primary"  data-toggle="modal" data-target="#largeModal"><i class="fa fa-star"></i>&nbsp; Agregar</button>
 <div class="row">
         
     <div class="col-md-12">
@@ -121,7 +135,7 @@ ModalAgregarDocente=()=>{
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="Enviar();">Confirm</button>
+                    <button type="button" class="btn btn-primary" onclick="GuardarAlumno();">Guardar</button>
                 </div>
             </div>
         </div>

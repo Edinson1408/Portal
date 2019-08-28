@@ -62,13 +62,43 @@ ModalAgregarDocente=()=>{
 
       BuscarAlumno=()=>{
           console.log('Buscar');
-          jQuery.ajax({
+          let IdAlumno=jQuery('#IdAlumno').val();
+          let Documento=jQuery('#Documento').val();
+          let Periodo=jQuery('#Periodo').val();
+          
+          console.log(IdAlumno)
+          console.log(Documento)
+          console.log(Periodo)
+          let Buscar='0';
+          if (IdAlumno=='' &&  Documento=='' && Periodo=='')
+          {
+              console.log('Por Favor llene algun campo')
+          }else if ((Periodo!='' && IdAlumno=='') && (Periodo!='' && Documento=='') ) {
+              console.log('Ingresar el id o dni del alumno')
+          } else {
+              if(Periodo=='' && (IdAlumno!='' || Documento!='') )
+              {
+                console.log('Ingresar el Periodo');
+              }else {
+                  console.log('todo ready')
+                  Buscar='1';
+              }
+          }
+
+    if(Buscar=='1')
+    {
+        console.log('enviamos el log');
+        
+    }
+         /* jQuery.ajax({
             url:`php/Registro/ActivarAlumno.html`,
             success: function name(data) {
-            var Html=data;
-            jQuery("#profile").html(`${Html}`);
+            //var Html=data;
+            //jQuery("#profile").html(`${Html}`);
             }
-        });
+        });*/
+
+
       }
 //ActivarAlumno
 </script>
@@ -95,7 +125,7 @@ ModalAgregarDocente=()=>{
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i>
                                 </div>
-                                <input class="form-control" name='IdAlumno'>
+                                <input class="form-control" name='IdAlumno' id='IdAlumno'>
                             </div>
                          </div>
                     </div>
@@ -107,7 +137,7 @@ ModalAgregarDocente=()=>{
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-calendar"></i>
                                 </div>
-                                <input class="form-control" name='TipoDocumento'>
+                                <input class="form-control" name='Documento' id='Documento'>
                             </div> 
                          </div>
                     </div>
@@ -119,7 +149,7 @@ ModalAgregarDocente=()=>{
                                 <div class="input-group">
                                     <div class="input-group-addon"><i class="fa fa-calendar"></i>
                                     </div>
-                                    <input class="form-control" name='Periodo'>
+                                    <input class="form-control" name='Periodo' id='Periodo'>
                                 </div>
                          </div>
                     </div>
