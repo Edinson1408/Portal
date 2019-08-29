@@ -39,9 +39,11 @@ require '../Modelo/AlumnosM.php';
 
     public function Activacion($POST)
     {
-            echo 'obtener los datos del alumno registrado para su activacioon';
+            return $this->DatosAlumnosActivacion($POST);
     }
 
+
+    
 
 }
 
@@ -58,6 +60,7 @@ switch ($_POST['Peticion']) {
         break;
     case 'Activacion' :
         $vita=$Obje->Activacion($_POST);
+        echo $vita;
     break;
 
     default:

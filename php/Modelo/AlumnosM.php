@@ -96,6 +96,31 @@ class AlumnosM extends PersonaM
 
     }
     
+
+    public function DatosAlumnosActivacion($POST){
+        //IdAlumno,'Documento':Documento,'Periodo':Periodo
+        $IdAlumno=$_POST['IdAlumno'];
+        $Documento=$_POST['Documento'];
+        $Where='';
+        if($IdAlumno!='' AND $Documento!='')
+        {
+            $Where="  WHERE A.IDALUMNO'$IdAlumno' AND A.NUM_DOCUMENTO='$Documento' ";
+        }else {
+            if($IdAlumno!=''){
+                $Where="  WHERE A.IDALUMNO='$IdAlumno'";
+            }elseif($Documento!=''){
+                $Where="  WHERE  A.NUM_DOCUMENTO='$Documento' ";
+            }
+
+            
+        }
+
+        
+        $sql="SELECT  A.* From (SELECT A.IDALUMNO,A.IDPERSONA,B.NOMBRES,B.APELLIDOS,B.NUM_DOCUMENTO FROM alumno_tbl A inner JOIN datos_personales_tbl B
+        ON A.IDPERSONA=B.IDPERSONA)  A  $Where";
+        return  $this->SelectArray($sql);
+
+    }
 }
 
 ?>

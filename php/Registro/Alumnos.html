@@ -88,15 +88,35 @@ ModalAgregarDocente=()=>{
     if(Buscar=='1')
     {
         console.log('enviamos el log');
-        
-    }
-         /* jQuery.ajax({
-            url:`php/Registro/ActivarAlumno.html`,
-            success: function name(data) {
+         jQuery.ajax({
+            url:`php/Controlador/AlumnoC.php`,
+            type: 'POST',
+            data : {'Peticion':'Activacion','IdAlumno':IdAlumno,'Documento':Documento,'Periodo':Periodo},
+            success: (data)=> {
+                console.log(data);
+                let $Obj=JSON.parse(data);
+                console.log($Obj);
+                if(data =='[]'){
+                    console.log("El alumno no se encuentra registrao");
+                }
+                else 
+                {
+                    console.log('Mostremos el html')
+                    jQuery.ajax({
+                        url:`php/Registro/ActivarAlumno.html`,
+                        success: function name(data) {
+                        var Html=data;
+                        jQuery("#profile").html(`${Html}`);
+                        }
+                    });
+                }
             //var Html=data;
             //jQuery("#profile").html(`${Html}`);
             }
-        });*/
+        });
+
+    }
+         
 
 
       }

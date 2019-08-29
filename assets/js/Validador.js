@@ -13,7 +13,7 @@ jQuery.ajax({
                 ///console.log(Object.keys(Obj).length)
                 //JSON.stringify(obj)=='{}'
                 if(Obj =='[]'){
-                    console.log('SI procesde ');
+                    console.log('SI procede ');
                     jQuery('#'+$Valor).addClass("is-valid");
                     jQuery('#'+$Valor).removeClass("is-invalid");
                     
