@@ -101,12 +101,35 @@ ModalAgregarDocente=()=>{
                 }
                 else 
                 {
+                    console.log($Obj[0]);
+                    let IdRegistro=$Obj[0].IDREGISTRO;
+                    console.log('id registro '+IdRegistro);
                     console.log('Mostremos el html')
                     jQuery.ajax({
                         url:`php/Registro/ActivarAlumno.html`,
                         success: function name(data) {
                         var Html=data;
                         jQuery("#profile").html(`${Html}`);
+                        console.log(IdRegistro)
+                            if (IdRegistro!=null) {
+                                console.log('Actualizar');
+                                /*jQuery('#IdAlumno').val();
+                                jQuery('#Nombres').val();
+                                jQuery('#IdCarrera').val();
+                                jQuery('#Periodo').val();*/
+                            }else{
+                                console.log('Registrar');
+                                jQuery('#IdAlumnoA').val($Obj[0].IDALUMNO);
+                                jQuery('#Nombres').val($Obj[0].NOMBRES + ' ' +$Obj[0].APELLIDOS );
+                                //jQuery('#IdCarrera').val();
+                                if ($Obj[0].PERIODO!=null) {
+                                    jQuery('#Periodo').val($Obj[0].PERIODO);
+                                }else {
+                                    jQuery('#PeriodoA').val(Periodo);    
+                                }
+                                ArmarSelect('IdCarrera','carreras_tbl','IDCARRERA','DESCR250','');
+                                
+                            }
                         }
                     });
                 }

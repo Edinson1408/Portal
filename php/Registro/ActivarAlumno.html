@@ -17,10 +17,11 @@
                 <div class="card-body card-block">
                     <div class="col col-md-7">
                     <form id='FormActivarAlumno' class="form-horizontal">
+                        <input type="test" id="IdRegistro" name="IdRegistro" style="display:none" />
                         <div class="row form-group">
                             <div class="col col-md-5"><label class=" form-control-label">Id de Alumno</label></div>
                             <div class="col-12 col-md-7">
-                                <input type="text" id="IdAlumno" name="IdAlumno" class="form-control" readonly>
+                                <input type="text" id="IdAlumnoA" name="IdAlumno" class="form-control" readonly>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -38,7 +39,7 @@
                         <div class="row form-group">
                             <div class="col col-md-5"><label for="password-input" class=" form-control-label">Periodo de estudio</label></div>
                             <div class="col-12 col-md-7">
-                                <input type="password" id="Periodo" name="Periodo"  class="form-control">
+                                <input type="text" id="PeriodoA" name="Periodo"  class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">
@@ -73,5 +74,17 @@
             GuardarActivarAlumno=()=>{
                 let data=jQuery('#FormActivarAlumno').serialize();
                 console.log(data);
+                data=data+"&Peticion=AtivacionCU";
+                jQuery.ajax({
+                url:`php/Controlador/AlumnoC.php`,
+                type:'POST',
+                data:data,
+                success: function name(ee) {
+                    console.log(ee);
+                    //var Html=data;
+                    //console.log(data);
+                    //jQuery("#ContenidoModal").html(`${Html}`);
+                    }
+                });
             }
         </script>

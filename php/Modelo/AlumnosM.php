@@ -21,7 +21,7 @@ class AlumnosM extends PersonaM
         /*
         SELECT LPAD('34',5,'0') FROM DUAL;
         */
-        $Sql="INSERT INTO   `alumno_tbl`(
+        echo $Sql="INSERT INTO   `alumno_tbl`(
           `IDALUMNO`,
          `IDPERSONA`,
          `ANO_INGRESO`,
@@ -116,10 +116,20 @@ class AlumnosM extends PersonaM
         }
 
         
-        $sql="SELECT  A.* From (SELECT A.IDALUMNO,A.IDPERSONA,B.NOMBRES,B.APELLIDOS,B.NUM_DOCUMENTO FROM alumno_tbl A inner JOIN datos_personales_tbl B
-        ON A.IDPERSONA=B.IDPERSONA)  A  $Where";
+       /*echo $sql="SELECT  A.* From (SELECT A.IDALUMNO,A.IDPERSONA,B.NOMBRES,B.APELLIDOS,B.NUM_DOCUMENTO FROM alumno_tbl A inner JOIN datos_personales_tbl B
+        ON A.IDPERSONA=B.IDPERSONA)  A  $Where"; */
+
+        $sql="SELECT  A.*,AC.IDREGISTRO,AC.IDCARRERA,AC.PERIODO,AC.ESTADO From (SELECT A.IDALUMNO,A.IDPERSONA,B.NOMBRES,B.APELLIDOS,B.NUM_DOCUMENTO FROM alumno_tbl A 
+        inner JOIN datos_personales_tbl B ON A.IDPERSONA=B.IDPERSONA)  A 
+        left JOIN   activacion_alumno AC on A.IDALUMNO=AC.IDALUMNO AND AC.PERIODO='".$POST['Periodo']."'  $Where "; 
         return  $this->SelectArray($sql);
 
+    }
+
+    public function AtivacionCU($POST){
+        echo $sql="INSERT INTO `activacion_alumno`
+        (`IDREGISTRO`, `IDALUMNO`, `IDCARRERA`, `PERIODO`, `ESTADO`, `DATE_CREATE`, `USER_CREATE`, `DATE_UPDATE`, `USER_UPDATE`) 
+        VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9])"; 
     }
 }
 
