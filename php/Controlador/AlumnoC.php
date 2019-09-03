@@ -43,7 +43,7 @@ require '../Modelo/AlumnosM.php';
     }
 
     public function ActivacionAgregarAtualizar($POST){
-                $this->AtivacionCU($POST);
+                return $this->AtivacionCU($POST);
     }
 
 
@@ -68,6 +68,7 @@ switch ($_POST['Peticion']) {
     break;
     case 'AtivacionCU':
         $vita=$Obje->ActivacionAgregarAtualizar($_POST);
+        echo $vita;
         break;
 
     default:

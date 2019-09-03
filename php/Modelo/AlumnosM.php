@@ -131,7 +131,7 @@ class AlumnosM extends PersonaM
         $USER='EFLORIAN';
         if($POST['IdRegistro']=='')
         {
-            echo $sql="INSERT INTO `activacion_alumno`
+            $Sql="INSERT INTO `activacion_alumno`
                 ( `IDALUMNO`, `IDCARRERA`, `PERIODO`, 
                     `ESTADO`, 
                     `DATE_CREATE`, 
@@ -140,9 +140,11 @@ class AlumnosM extends PersonaM
                 VALUES ('".$POST['IdAlumno']."',
                 '".$POST['IdCarrera']."','".$POST['Periodo']."',
                 '".$POST['Estado']."','". $rr."','".$USER."')"; 
+                $this->Insert($Sql);
+                return mysqli_insert_id($this->Conexion);
         }
         else {
-            echo $sql="UPDATE  `activacion_alumno`
+            $Sql="UPDATE  `activacion_alumno`
                     SET IDALUMNO='".$POST['IdAlumno']."'
                     ,IDCARRERA='".$POST['IdCarrera']."'
                     ,PERIODO='".$POST['Periodo']."'
@@ -151,6 +153,7 @@ class AlumnosM extends PersonaM
                     ,USER_UPDATE='".$USER."'
                WHERE 
                IDREGISTRO='".$POST['IdRegistro']."' ";
+               $this->Insert($Sql);
             }
         
     }

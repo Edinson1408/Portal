@@ -109,7 +109,11 @@ window.onload = function(){
             data : {'Control':'Login','User':User,'Pass':Pass},
 			success:(data)=>{
 				//console.log(data);
-				$ObjLogin=JSON.parse(data);
+				if (data=='[]'){
+					console.log('usuario o contraseña errada')
+				}
+				else {
+					$ObjLogin=JSON.parse(data);
 				console.log($ObjLogin);
 				console.log($ObjLogin[0]['APELLIDOS']);
 
@@ -129,6 +133,8 @@ window.onload = function(){
                     }
                     
                     );
+				}
+				
 
 
 			}

@@ -81,6 +81,12 @@
                 data:data,
                 success: function name(ee) {
                     console.log(ee);
+                    if (ee=='') {
+                        
+                    }else{
+                        jQuery('#IdRegistro').val(ee);
+                    }
+                    
                     //var Html=data;
                     //console.log(data);
                     //jQuery("#ContenidoModal").html(`${Html}`);
