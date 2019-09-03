@@ -73,12 +73,15 @@ ModalAgregarDocente=()=>{
           if (IdAlumno=='' &&  Documento=='' && Periodo=='')
           {
               console.log('Por Favor llene algun campo')
+              swal('Por Favor llene algun campo');
           }else if ((Periodo!='' && IdAlumno=='') && (Periodo!='' && Documento=='') ) {
               console.log('Ingresar el id o dni del alumno')
+              swal('Ingresar el id o dni del alumno');
           } else {
               if(Periodo=='' && (IdAlumno!='' || Documento!='') )
               {
                 console.log('Ingresar el Periodo');
+                swal('Ingresar el Periodo');
               }else {
                   console.log('todo ready')
                   Buscar='1';

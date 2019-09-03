@@ -127,9 +127,32 @@ class AlumnosM extends PersonaM
     }
 
     public function AtivacionCU($POST){
-        echo $sql="INSERT INTO `activacion_alumno`
-        (`IDREGISTRO`, `IDALUMNO`, `IDCARRERA`, `PERIODO`, `ESTADO`, `DATE_CREATE`, `USER_CREATE`, `DATE_UPDATE`, `USER_UPDATE`) 
-        VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9])"; 
+        $rr=date("Y/m/d H:i:s");
+        $USER='EFLORIAN';
+        if($POST['IdRegistro']=='')
+        {
+            echo $sql="INSERT INTO `activacion_alumno`
+                ( `IDALUMNO`, `IDCARRERA`, `PERIODO`, 
+                    `ESTADO`, 
+                    `DATE_CREATE`, 
+                    `USER_CREATE`
+                    ) 
+                VALUES ('".$POST['IdAlumno']."',
+                '".$POST['IdCarrera']."','".$POST['Periodo']."',
+                '".$POST['Estado']."','". $rr."','".$USER."')"; 
+        }
+        else {
+            echo $sql="UPDATE  `activacion_alumno`
+                    SET IDALUMNO='".$POST['IdAlumno']."'
+                    ,IDCARRERA='".$POST['IdCarrera']."'
+                    ,PERIODO='".$POST['Periodo']."'
+                    ,ESTADO='".$POST['Estado']."'
+                    ,DATE_UPDATE='". $rr."'
+                    ,USER_UPDATE='".$USER."'
+               WHERE 
+               IDREGISTRO='".$POST['IdRegistro']."' ";
+            }
+        
     }
 }
 
