@@ -7,7 +7,7 @@ class MisCursosDocenteM extends Conexion
   
     function Lista()
     {
-        $sql="SELECT IDREGISTRO,IDDOCENTE,IDCARRERA,IDCURSO,DESCARRERA,DESCURSO,PERIODO,CICLO FROM `curso_docente_tbl` WHERE PERIODO='2019' and CICLO='1' and IDDOCENTE='1'";
+        $sql="SELECT IDREGISTRO,IDDOCENTE,IDCARRERA,IDCURSO,DESCARRERA,DESCURSO,PERIODO,CICLO FROM `curso_docente_tbl` WHERE PERIODO='2019' and CICLO='1' and IDDOCENTE='00000000001'";
        return  $this->SelectArray($sql);
     }
 

@@ -96,7 +96,8 @@ jQuery.ajax({
                         <td>${obj[key]['DESCURSO']}</td> 
                         <td>${obj[key]['PERIODO']}</td> 
                         <td>${obj[key]['CICLO']}</td> 
-                        <td><button  onclick="ConfigurarCurso(${key},'${obj[key]['IDCURSO']}')"  type="button" class="btn btn-primary btn-sm"><i class="fa fa-cog"></i>&nbsp; Configurar</button>
+                        <td><button data-toggle="modal" data-target="#largeModal"  onclick="ConfigurarCurso(${key},'${obj[key]['IDCURSO']}','${obj[key]['IDCARRERA']}','${obj[key]['IDREGISTRO']}')"  type="button" class="btn btn-primary btn-sm">
+                        <i class="fa fa-cog"></i>&nbsp; Configurar</button>
                         </td>
                         </tr>  `;
                          res = res.concat($HtmlTablas);
@@ -190,25 +191,23 @@ ModalAgregarDocente=()=>{
     }
 
  
-ConfigurarCurso=(Key,IdCurso)=>{
+ConfigurarCurso=(Key,IdCurso,IdCarrera,IdRegistro)=>{
     
     console.log(Key);
     console.log(IdCurso);
- /*   console.log(obj);
-    let ObjEliminar=obj[key];
-    let Id=ObjEliminar['IDCARRERA'];
-    console.log(Id);
-    jQuery.ajax({
-        url:`php/Controlador/CarreraC.php/Eliminar`,
-        type:'POST',
-        data : {'Peticion':'Eliminar','IdCarrera':Id},
+    console.log(IdCarrera);
+    console.log(IdRegistro);
+
+   jQuery.ajax({
+        url:`php/Docente/ModalConfiguracion.html`,
         success: function name(data) {
-            console.log(data);
-            obj.splice(key,1);
-            ArmaTabla(obj,'')
+            /*console.log(data);*/
+            var Html=data;
+            /*console.log(data);*/
+            jQuery("#ContenidoModal").html(`${Html}`);
+            
         }
       });
-*/
     
 }
 
