@@ -5,6 +5,7 @@ MyPerfil=()=>{
         success:(data)=>{
             //document.getElementById('ContenidoModalPerfil').innerHTML(data);
             jQuery('#ContenidoModalPerfil').html(data)
+            jQuery('#ModalPerfil').modal()
         }
     })
     console.log('cambiar perfil');
