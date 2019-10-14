@@ -1,0 +1,213 @@
+<script>
+
+
+
+ArmarSelect('IdCarrera','carreras_tbl','IDCARRERA','DESCR250','');
+
+ModalAgregarDocente=()=>{
+    console.log('Agregar Docente');
+        jQuery.ajax({
+        url:`php/Mantenimiento/AgregarAlumno.html`,
+        success: function name(data) {
+            console.log(data);
+            var Html=data;
+            console.log(data);
+            jQuery("#ContenidoModal").html(`${Html}`);
+        }
+      });
+    }
+
+
+      Enviar=()=>{
+             conso=$('#FormularioEnnviar').serialize();
+            console.log(conso);
+      }
+
+
+      BuscarAlumno=()=>{
+          console.log('Buscar');
+          let IdAlumno=jQuery('#IdMalla').val();
+          let IdCarrera=jQuery('#IdCarrera').val();
+          let Periodo=jQuery('#Periodo').val();
+          
+          console.log(IdAlumno)
+          console.log(Documento)
+          console.log(Periodo)
+
+    //       let Buscar='0';
+    //       if (IdAlumno=='' &&  Documento=='' && Periodo=='')
+    //       {
+    //           console.log('Por Favor llene algun campo')
+    //           swal('Por Favor llene algun campo');
+    //       }else if ((Periodo!='' && IdAlumno=='') && (Periodo!='' && Documento=='') ) {
+    //           console.log('Ingresar el id o dni del alumno')
+    //           swal('Ingresar el id o dni del alumno');
+    //       } else {
+    //           if(Periodo=='' && (IdAlumno!='' || Documento!='') )
+    //           {
+    //             console.log('Ingresar el Periodo');
+    //             swal('Ingresar el Periodo');
+    //           }else {
+    //               console.log('todo ready')
+    //               Buscar='1';
+    //           }
+    //       }
+
+    // if(Buscar=='1')
+    // {
+    //     console.log('enviamos el log');
+    //      jQuery.ajax({
+    //         url:`php/Controlador/AlumnoC.php`,
+    //         type: 'POST',
+    //         data : {'Peticion':'Activacion','IdAlumno':IdAlumno,'Documento':Documento,'Periodo':Periodo},
+    //         success: (data)=> {
+    //             console.log(data);
+    //             let $Obj=JSON.parse(data);
+    //             console.log($Obj);
+    //             if(data =='[]'){
+    //                 console.log("El alumno no se encuentra registrao");
+    //             }
+    //             else 
+    //             {
+    //                 console.log($Obj[0]);
+    //                 let IdRegistro=$Obj[0].IDREGISTRO;
+    //                 console.log('id registro '+IdRegistro);
+    //                 console.log('Mostremos el html')
+    //                 jQuery.ajax({
+    //                     url:`php/Registro/ActivarAlumno.html`,
+    //                     success: function name(data) {
+    //                     var Html=data;
+    //                     jQuery("#profile").html(`${Html}`);
+    //                     console.log(IdRegistro)
+    //                         if (IdRegistro!=null) {
+    //                             console.log('Actualizar');
+    //                             jQuery('#IdAlumnoA').val($Obj[0].IDALUMNO);
+    //                             jQuery('#Nombres').val($Obj[0].NOMBRES + ' ' +$Obj[0].APELLIDOS );
+    //                             jQuery('#PeriodoA').val($Obj[0].PERIODO);
+    //                             jQuery('#IdRegistro').val(IdRegistro);
+                                
+                        
+    //                             ArmarSelect('IdCarrera','carreras_tbl','IDCARRERA','DESCR250','');
+    //                         }else{
+    //                             console.log('Registrar');
+    //                             jQuery('#IdAlumnoA').val($Obj[0].IDALUMNO);
+    //                             jQuery('#Nombres').val($Obj[0].NOMBRES + ' ' +$Obj[0].APELLIDOS );
+    //                             //jQuery('#IdCarrera').val();
+    //                             if ($Obj[0].PERIODO!=null) {
+    //                                 jQuery('#PeriodoA').val($Obj[0].PERIODO);
+    //                             }else {
+    //                                 jQuery('#PeriodoA').val(Periodo);    
+    //                             }
+    //                             ArmarSelect('IdCarrera','carreras_tbl','IDCARRERA','DESCR250','');
+                                
+    //                         }
+    //                         jQuery('#profile-tab').click()
+    //                     }
+    //                 });
+    //             }
+    //         //var Html=data;
+    //         //jQuery("#profile").html(`${Html}`);
+    //         }
+    //     });
+
+    // }
+         
+
+
+      }
+//ActivarAlumno
+</script>
+
+<strong><h2>Malla curricular</h2></strong><small>Admision</small>
+<div class="row">        
+    <div class="col-md-12">
+        <div class="card">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Busqueda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Actualizar</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="background: white;">
+                <div class="card-body card-block">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label class=" form-control-label">Id Malla</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </div>
+                                <input class="form-control" name='IdMalla' id='IdMalla'>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                            <label class=" form-control-label">Carrera</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                </div>
+                                <select class="form-control" name='IdCarrera' id='IdCarrera'></select>
+                            </div> 
+                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form-group">
+                                <label class=" form-control-label">Año de Malla</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input class="form-control" name='Periodo' id='Periodo'>
+                                </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+                <div class="card-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <button onclick="BuscarMalla();" class="btn btn-secondary">Buscar</button>
+                    </div>
+                </div>
+                </div>
+             </div>
+
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="background: white" id>
+                
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+</div>
+
+
+<!--modal -->
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aaria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="ContenidoModal">
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="Enviar();">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>

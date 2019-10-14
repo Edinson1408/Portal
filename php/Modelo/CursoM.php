@@ -26,13 +26,13 @@ class CursoM extends Conexion
         [TipoCurso] => 
         [Peticion] => Agregar
         */
-
+      
 
         echo $Sql="INSERT INTO `cursos_tbl`(`IDCURSOS`, `IDCARRERA`, `DESCR250`, `NUM_CREDITOS`
         , `NUM_HORAS`, `CICLO_RELATIVO`, `DATE_CREATE`, `USER_CREATE`) 
         VALUES ('".$POST['IdCursos']."' , '".$POST['IdCarrera']."' , '".$POST['Descr250']."' , '".$POST['NumCreditos']."',
         '".$POST['NumHoras']."','".$POST['CicloRelativo']."','".$rr."','".$USER."')";
-        //$this->Insert($Sql);
+        $this->Insert($Sql);
     }
 
     public function EliminarCurso($POST){

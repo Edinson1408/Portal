@@ -15,7 +15,7 @@
 	<div class="container" style="width: 70%;">
 	<div class="cabecera">
 		<a href="">
-			<img src="img/logosb.jpg">
+			<img src="login/img/logosb.jpg">
 		</a>
 	</div>
 	</div>
@@ -134,7 +134,7 @@ window.onload = function(){
                     
                     );
 
-					window.location.replace("../index.html");
+					window.location.replace("Portal.html");
 				}
 				
 

@@ -29,7 +29,7 @@ require '../Modelo/CursoM.php';
     }
 
     public function Agregar($POST){
-        //$this->AgregaDocente($POST);
+        $this->AgregaCurso($POST);
         print_r($POST);
     }
 
