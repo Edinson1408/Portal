@@ -5,6 +5,10 @@ Rutas=(Modulo,Nombre)=>{
             //console.log(data);
             var Html=data;
             jQuery("#CuerpoPortal").html(`${Html}`);
+            
+            var URLactual = window.location;
+            URLactual['hash']='#/'+Nombre;
+            URLactual['carperta']=Modulo;
         }
       });
 

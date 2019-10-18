@@ -726,5 +726,24 @@
 
 </html>
 <script>
- 
+ let URLactual = window.location;
+var hash=URLactual['hash'];
+EvaluaRuta=(hash)=>{
+if(hash=='')
+{
+    console.log('no hay nada ');
+}
+else {
+//Enrutaremos
+var str = hash;
+str = str.replace('#/','');
+console.log(str)
+        if (str=='Malla'){
+            Rutas('Mantenimiento',str);
+        }
+}
+
+}
+
+EvaluaRuta(hash);
 </script>
