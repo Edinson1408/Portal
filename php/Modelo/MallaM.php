@@ -15,6 +15,29 @@ class MallaM  extends Conexion
     }
 
     public function ValidaMalla($POST){
+        /*
+        {IdMalla: "1", IdCarrera: "101"
+            , Periodo:"2020", 
+            Peticion: "ValidaMalla"}
+        */
+        if ($POST['IdMalla']) {
+            $IdMalla=" IDMALLA = '".$POST['IdMalla']."' ";
+        }
+        if ($POST['IdCarrera']) {
+            $IdCarrera=" AND  IDCARRERA ='".$POST['IdCarrera']."' ";
+        }
+        if ($POST['Periodo']) {
+            $Periodo=" AND PERIODO='".$POST['Periodo']."' ";
+        }
+
+            $SqlCabecera="SELECT * FROM `malla_tbl` where $IdMalla  $IdCarrera $Periodo";
+            $Cabecera=json_decode($this->SelectArray($SqlCabecera));
+            $Cabecera=get_object_vars($Cabecera[0]);
+            $SqlDetalle="SELECT * FROM `detalle_malla_tbl` where $IdMalla  $IdCarrera ";
+            $Detalle=json_decode($this->SelectArray($SqlDetalle));
+            //$Detalle=get_object_vars($Detalle);
+            $Cabecera['DETALLE']=$Detalle;
+        return $Cabecera;
         
     }
 

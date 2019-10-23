@@ -16,10 +16,9 @@ require '../Modelo/MallaM.php';
     
 
     public function Vista($POST){
-        echo json_encode($POST);
-        $this->ValidaMalla($POST,$IdPersona);
-
-
+        //echo json_encode($POST);
+        $Malla=$this->ValidaMalla($POST);
+        echo json_encode($Malla);
     }
 
     public function Agregar($POST){

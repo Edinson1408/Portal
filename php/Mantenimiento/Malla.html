@@ -133,8 +133,10 @@ ModalAgregarDocente=()=>{
 
                 })
                 .then(function(texto) {
-                console.log(texto);
-                console.log(JSON.parse(texto));
+                //console.log(texto);
+                $Objeto=JSON.parse(texto);
+                //console.log($Objeto);
+                TablaMalla($Objeto)
                 
                 })
                 .catch(function(err) {
@@ -142,6 +144,34 @@ ModalAgregarDocente=()=>{
                 }); 
       }
 //ActivarAlumno
+
+TablaMalla=(Objeto)=>{
+    jQuery('#profile-tab').click();
+    var res='';
+    Objeto1=Objeto['DETALLE'];
+    console.log(Objeto1);
+    Object.keys(Objeto1).forEach(
+                    key =>{
+                        console.log(key, Objeto1[key])
+                        $HtmlTablas=`<tr>
+                            <th scope="row">${Objeto1[key]['IDCURSO']}</th> 
+                            <td>${Objeto1[key]['DESCURSO']}</td> 
+                            <td>${Objeto1[key]['CICLO']}</td> 
+                            
+                            <td>
+                                <a onclick='Eliminar(${key})'  title='Eliminar'><i class="fa fa-times-circle fa-lg"></i></a>
+                            </td>
+                        </tr>  `;
+                         res = res.concat($HtmlTablas);
+                         
+                    }
+                    
+                ) 
+
+    $Html=res;
+    jQuery("#ContenidoTabla").html(`${$Html}`);
+}
+
 </script>
 
 <strong><h2>Malla curricular</h2></strong><small>Admision</small>
@@ -209,6 +239,43 @@ ModalAgregarDocente=()=>{
 
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="background: white" id>
                 
+                <div class="col-lg-12">
+                    <div class="card" style="width: 100%;">
+                        <div class="card-header">
+                            <strong>Detalle de Malla</strong> ~ Admision <button style="float: right;" class="btn btn-primary">Agregar</button>
+                        </div>
+                        <div class="card-body card-block">
+                            <h3>Lista de Cursos </h3>
+                            <br>
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Id Curso</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Ciclo</th>
+                                  </tr>
+                                </thead>
+                                <tbody id='ContenidoTabla'> 
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" onclick="GuardarActivarAlumno();">
+                                <i class="fa fa-dot-circle-o"></i> Activar
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Reniciar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
           </div>
       </div>
