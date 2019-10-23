@@ -4,6 +4,38 @@
 
 ArmarSelect('IdCarrera','carreras_tbl','IDCARRERA','DESCR250','');
 
+// ModalTransversales=()=>{
+//     // const dataenvia = new FormData(document.getElementById('FormularioMalla'));
+//     // dataenvia.append("Peticion", "CursosTranversales");
+//     //     fetch('php/Controlador/MallaC.php', {
+//     //         method: 'POST',
+//     //         body: dataenvia,
+//     //         }).then(function(response) {
+//     //             //console.log(response)
+//     //             if(response.ok) {
+//     //                 return response.text()
+//     //             } else {
+//     //                 throw "Error en la llamada Ajax";
+//     //             }
+
+//     //             })
+//     //             .then(function(texto) {
+//     //             //console.log(texto);
+//     //              $Objeto=JSON.parse(texto);
+//     //             console.log($Objeto);
+//     //             //DetalleMalla=$Objeto;
+//     //             //TablaMalla($Objeto)
+                
+//     //             })
+//     //             .catch(function(err) {
+//     //             console.log(err);
+//     //             }); 
+    
+// }
+
+
+
+
 ModalAgregarDocente=()=>{
     console.log('Agregar Docente');
         jQuery.ajax({
@@ -117,7 +149,7 @@ ModalAgregarDocente=()=>{
 
     //enviando datos del formulario
     //const dataenvia = new FormData(document.getElementById('FormularioMalla'));
-
+var DetalleMalla='';
         const dataenvia = new FormData(document.getElementById('FormularioMalla'));
         dataenvia.append("Peticion", "ValidaMalla");
         fetch('php/Controlador/MallaC.php', {
@@ -134,8 +166,10 @@ ModalAgregarDocente=()=>{
                 })
                 .then(function(texto) {
                 //console.log(texto);
-                $Objeto=JSON.parse(texto);
-                //console.log($Objeto);
+                 $Objeto=JSON.parse(texto);
+                console.log($Objeto);
+                DetalleMalla=$Objeto;
+                EXTRA=$Objeto['EXTRAS'];
                 TablaMalla($Objeto)
                 
                 })
@@ -149,7 +183,7 @@ TablaMalla=(Objeto)=>{
     jQuery('#profile-tab').click();
     var res='';
     Objeto1=Objeto['DETALLE'];
-    console.log(Objeto1);
+    //console.log(Objeto1);
     Object.keys(Objeto1).forEach(
                     key =>{
                         console.log(key, Objeto1[key])
@@ -171,6 +205,85 @@ TablaMalla=(Objeto)=>{
     $Html=res;
     jQuery("#ContenidoTabla").html(`${$Html}`);
 }
+
+
+Eliminar=(key)=>{    
+    //console.log(obj);
+    Miobjeto=$Objeto['DETALLE'][key];
+    $Objeto['EXTRAS'].push(Miobjeto)
+    $Objeto['DETALLE'].splice(key,1);
+    TablaMalla($Objeto)
+    TablaMallaExtra($Objeto)
+    //console.log($Objeto)
+
+    //console.log($Objeto);
+    
+    // let Id=ObjEliminar['IDCURSOS'];
+    // //console.log(Id);
+    // //console.log(ObjEliminar);
+    // jQuery.ajax({
+    //     url:`php/Controlador/CursosC.php/Eliminar`,
+    //     type:'POST',
+    //     data : {'Peticion':'Eliminar','IdCurso':Id},
+    //     success: function name(data) {
+    //         console.log(data);
+    //         obj.splice(key,1);
+    //         ArmaTabla(obj,'')
+    //     }
+    //   });
+
+    
+}
+Agregar=()=>{
+    //para agregar
+    //Obje.push(MIobj);
+}
+
+ModalTransversales=()=>{
+  
+  
+  TablaMallaExtra($Objeto)
+    
+}
+
+TablaMallaExtra=(objeto)=>{
+    
+    var res='';
+    Objeto1=objeto['EXTRAS'];
+    //console.log(Objeto1);
+    Object.keys(Objeto1).forEach(
+                    key =>{
+                        console.log(key, Objeto1[key])
+                        $HtmlTablas=`<tr>
+                            <th scope="row">${Objeto1[key]['IDCURSO']}</th> 
+                            <td>${Objeto1[key]['DESCURSO']}</td> 
+                            <td>${Objeto1[key]['CICLO']}</td> 
+                            
+                            <td>
+                                <button onclick='EliminaAgrega(${key})'  class="btn btn-success">Agregar</button>
+                            </td>
+                        </tr>  `;
+                         res = res.concat($HtmlTablas);
+                         
+                    }
+                    
+                ) 
+
+    $Html=res;
+    jQuery("#ContenidoTablaExtra").html(`${$Html}`);
+}
+
+
+EliminaAgrega=(key)=>{
+    MIobj=$Objeto['EXTRAS'][key];
+    $Objeto['DETALLE'].push(MIobj);
+    $Objeto['EXTRAS'].splice(key,1);
+    TablaMallaExtra($Objeto)
+    TablaMalla($Objeto)
+    
+}
+
+
 
 </script>
 
@@ -242,7 +355,7 @@ TablaMalla=(Objeto)=>{
                 <div class="col-lg-12">
                     <div class="card" style="width: 100%;">
                         <div class="card-header">
-                            <strong>Detalle de Malla</strong> ~ Admision <button style="float: right;" class="btn btn-primary">Agregar</button>
+                            <strong>Detalle de Malla</strong> ~ Admision <button style="float: right;" onclick="ModalTransversales();"  data-toggle="modal" data-target="#largeModal" class="btn btn-primary">Agregar</button>
                         </div>
                         <div class="card-body card-block">
                             <h3>Lista de Cursos </h3>
@@ -297,7 +410,23 @@ TablaMalla=(Objeto)=>{
                     </button>
                 </div>
                 <div class="modal-body" id="ContenidoModal">
-                   
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Id Curso</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Ciclo</th>
+                          </tr>
+                        </thead>
+                        <tbody id='ContenidoTablaExtra'> 
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

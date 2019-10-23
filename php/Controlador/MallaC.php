@@ -21,6 +21,10 @@ require '../Modelo/MallaM.php';
         echo json_encode($Malla);
     }
 
+    public function CursosTranversales($POST){
+        $CursosExtras=$this->CursosExtras($POST);
+    }
+
     public function Agregar($POST){
         $IdPersona=$this->AgregaAlumno($POST);
         echo 'hola';
@@ -54,8 +58,8 @@ switch ($_POST['Peticion']) {
         // echo $vita;
         break;
     
-    case 'Agregar':
-        // $vita=$Obje->Agregar($_POST);
+    case 'CursosTranversales':
+        $vita=$Obje->CursosTranversales($_POST);
         break;
     case 'Activacion' :
         // $vita=$Obje->Activacion($_POST);

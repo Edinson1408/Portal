@@ -15,11 +15,6 @@ class MallaM  extends Conexion
     }
 
     public function ValidaMalla($POST){
-        /*
-        {IdMalla: "1", IdCarrera: "101"
-            , Periodo:"2020", 
-            Peticion: "ValidaMalla"}
-        */
         if ($POST['IdMalla']) {
             $IdMalla=" IDMALLA = '".$POST['IdMalla']."' ";
         }
@@ -37,8 +32,16 @@ class MallaM  extends Conexion
             $Detalle=json_decode($this->SelectArray($SqlDetalle));
             //$Detalle=get_object_vars($Detalle);
             $Cabecera['DETALLE']=$Detalle;
+            $Cabecera['EXTRAS']=$this->CursosExtras();
+            
         return $Cabecera;
         
+    }
+
+    public function CursosExtras(){
+        $SqlDetalle="SELECT ' ' ID_DETALLE_MALLA, ' ' IDMALLA , IDCARRERA , IDCURSOS AS IDCURSO, DESCR250 AS DESCURSO , CICLO_RELATIVO AS CICLO FROM `cursos_tbl` WHERE IDCARRERA='10010' ";
+        $Detalle=json_decode($this->SelectArray($SqlDetalle));
+        return $Detalle;
     }
 
     public function AgregaAlumno($POST){
@@ -88,9 +91,7 @@ class MallaM  extends Conexion
 
     public function GeneraUsuario($POST,$IdPersona){
 
-        //**varchar(50) */
-        /*$POST[''] 
-        $POST['']*/
+     
         
 
         $Nombre = substr($POST['Nombres'], 0, 1);
@@ -112,15 +113,7 @@ class MallaM  extends Conexion
 
             return $NombreUsuario;
 
-    /*IDUSUARIO
-    IDPERSONA
-    NOM_USUARIO
-    PASS_USUARIO
-    TIPO_USUARIO
-    DATE_CREATE
-    USER_CREATE
-	DATE_UPDATE	
-	USER_UPDATE*/
+    
 
     }
     
