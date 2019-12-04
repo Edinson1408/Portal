@@ -1,0 +1,100 @@
+<div class="container">
+        <strong><h3>Activación de Cursos</h3></strong><small>Docentes</small>
+        <div class="row">        
+            <div class="col-md-12">
+                <div class="card">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Busqueda</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Actualizar</a>
+                    </li>
+                  </ul>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style="background: white;">
+                        <div class="card-body card-block">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label class=" form-control-label">Id Docente</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input class="form-control" name='IdAlumno' id='IdAlumno'>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                    <label class=" form-control-label">Documento de identificación</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input class="form-control" name='Documento' id='Documento'>
+                                    </div> 
+                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="form-group">
+                                        <label class=" form-control-label">Periodo</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="fa fa-calendar"></i>
+                                            </div>
+                                            <input class="form-control" name='Periodo' id='Periodo'>
+                                        </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="card-footer">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <button onclick="BuscarDocente();" class="btn btn-secondary">Buscar</button>
+                            </div>
+                        </div>
+                        </div>
+                     </div>
+        
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="background: white" id>
+                        
+                    </div>
+                  </div>
+              </div>
+            </div>
+        
+        
+        </div>   
+</div>
+    
+
+
+
+
+
+<!--modal -->
+
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aaria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="ContenidoModal">
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="Enviar();">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/CursoDocentes.js"></script>

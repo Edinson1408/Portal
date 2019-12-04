@@ -35,6 +35,10 @@ require '../Modelo/DocenteM.php';
         }
     }
 
+    public function DatosDocente($POST){
+            echo $this->DatosDocentesM($POST);
+    }
+
 
 }
 
@@ -50,6 +54,9 @@ switch ($_POST['Peticion']) {
         $vita=$Obje->Agregar($_POST);
         break;
     
+    case 'DatosDocente':
+            
+        break;
     default:
         # code...
         break;

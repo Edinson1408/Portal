@@ -95,6 +95,19 @@ class DocenteM extends PersonaM
 
     }
     
+    public function DatosDocentesM ($POST){
+        
+        
+        $Where=($POST['IdDocente']) ? " WHERE  B.IDDOCENTE='".$POST['IdDocente']."' " : " WHERE  A.NUM_DOCUMENTO='".$POST['Documento']."' ";
+
+        echo $SQL="SELECT CONCAT(A.NOMBRES,' ',A.APELLIDOS) AS NOMBRES,A.EDAD,A.NUM_DOCUMENTO ,A.F_NACIMIENTO,B.IDDOCENTE,B.ANO_INGRESO,B.ANO_EGRESO,B.INSTITUCION_PROCEDENCIA,B.CARRERA_PROFESIONAL,B.ESTADO,C.DESCR250 AS CARRERA FROM `datos_personales_tbl` A 
+              INNER JOIN docentes_tbl B ON A.IDPERSONA=B.IDPERSONA INNER JOIN carreras_tbl C 
+              ON B.IDCARRERA=C.IDCARRERA
+              $Where  ";
+
+        return  $this->SelectArray($SQL);
+
+    }
 }
 
 ?>
