@@ -55,7 +55,7 @@ switch ($_POST['Peticion']) {
         break;
     
     case 'DatosDocente':
-            
+        $vita=$Obje->DatosDocente($_POST);
         break;
     default:
         # code...

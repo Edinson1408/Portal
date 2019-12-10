@@ -52,23 +52,20 @@ BuscarDocente=()=>{
                 let $Obj=JSON.parse(data);
                 console.log($Obj);
                 if(data =='[]'){
-                    console.log("El alumno no se encuentra registrao");
+                    console.log("El Docente no se encuentra Registrado");
                 }
                 else 
                 {
-                    console.log($Obj[0]);
-                    let IdRegistro=$Obj[0].IDREGISTRO;
-                    console.log('id registro '+IdRegistro);
-                    console.log('Mostremos el html')
+                    
                     jQuery.ajax({
-                        url:`php/Registro/ActivarAlumno.html`,
+                        url:`php/Registro/DetalleCursoDocente.html`,
                         success: function name(data) {
                         var Html=data;
                         jQuery("#profile").html(`${Html}`);
                         console.log(IdRegistro)
                             if (IdRegistro!=null) {
                                 console.log('Actualizar');
-                                jQuery('#IdAlumnoA').val($Obj[0].IDALUMNO);
+                                jQuery('#IdDocente').val($Obj[0].IDDOCENTE);
                                 jQuery('#Nombres').val($Obj[0].NOMBRES + ' ' +$Obj[0].APELLIDOS );
                                 jQuery('#PeriodoA').val($Obj[0].PERIODO);
                                 jQuery('#IdRegistro').val(IdRegistro);
